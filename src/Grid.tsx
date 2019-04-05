@@ -1,7 +1,7 @@
 import * as React from "react";
 
-export type GridProps<Tile> = {
-
+export interface GridProps<Tile> {
+  tileMap: any;
 }
 
 /**
@@ -12,5 +12,5 @@ export const Grid = <Tile extends any>(props: GridProps<Tile>) => {
     <>
       <div className="grid">Grid</div>
     </>
-  )
-}
+  );
+};
