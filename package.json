@@ -4,11 +4,15 @@
   "description": "React game grid component",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist coverage node_modules",
     "format": "tslint --fix --config ./tslint.json --project ./",
     "lint": "tslint --project ./",
+    "prepublishOnly": "npm run build",
     "test": "jest"
   },
   "repository": {
@@ -31,6 +35,7 @@
     "enzyme-to-json": "^3.3.5",
     "husky": "^1.3.1",
     "jest": "^24.7.1",
+    "nndgame-common": "0.0.5-2",
     "prettier": "1.16.4",
     "pretty-quick": "^1.10.0",
     "react": "^16.8.6",
