@@ -32,13 +32,12 @@ describe("Grid", () => {
   const VIEW_MAX_Y = 2;
   const VIEW_MIN_X = -2;
   const VIEW_MIN_Y = -2;
-  const TOTAL_TILES_IN_VIEW = 25; // 5x5 grid
   const NOOP_COMPONENT = () => null;
 
   const mockTileComponent = (props: TileComponentProps<any>) => (
     <div data-x={props.x} data-y={props.y} />
   );
-  const mockEmptyTileComponent = (props: EmptyTileComponentProps) => null;
+  const mockEmptyTileComponent = () => null;
 
   it("should be defined", () => {
     expect(Grid).not.toBeUndefined();
@@ -57,7 +56,7 @@ describe("Grid", () => {
     expect(wrapper.find(".grid").length).toStrictEqual(1);
   });
 
-  it("should render dimensions class", () => {
+  it("should render width class", () => {
     const wrapper = mount(
       <Grid
         tileMap={TILE_MAP}
@@ -67,7 +66,20 @@ describe("Grid", () => {
         emptyTileComponent={NOOP_COMPONENT}
       />
     );
-    expect(wrapper.find(".grid.dimensions-5x5").length).toStrictEqual(1);
+    expect(wrapper.find(".grid.width-5").length).toStrictEqual(1);
+  });
+
+  it("should render height class", () => {
+    const wrapper = mount(
+      <Grid
+        tileMap={TILE_MAP}
+        focalPoint={FOCAL_POINT}
+        viewDimensions={VIEW_DIMENSIONS}
+        tileComponent={NOOP_COMPONENT}
+        emptyTileComponent={NOOP_COMPONENT}
+      />
+    );
+    expect(wrapper.find(".grid.height-5").length).toStrictEqual(1);
   });
 
   it("should render the four corner tiles", () => {
