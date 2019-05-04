@@ -19,6 +19,10 @@ function range(from: number, to: number) {
   );
 }
 
+function getDimensionsCssClass(dimensions: Geometry.Dimensions) {
+  return `dimensions-${dimensions.width}x${dimensions.height}`;
+}
+
 /**
  * Renders a grid of tiles
  */
@@ -31,13 +35,12 @@ export const Grid = <Tile extends any>(props: GridProps<Tile>) => {
   const TypedEmptyTileComponent = props.emptyTileComponent;
   return (
     <>
-      <div className="grid">
+      <div className={`grid ${getDimensionsCssClass(props.viewDimensions)}`}>
         {range(viewBoundingRect.min.y, viewBoundingRect.max.y).map(
           (y: number) => (
             <div key={y} className="row" data-row={y}>
               {range(viewBoundingRect.min.x, viewBoundingRect.max.x).map(
                 (x: number) => {
-                  // console.log(`(x, y) = (${x}, ${y})`);
                   const tile = props.tileMap.get(new Geometry.Point(x, y));
                   return (
                     <TileContainer

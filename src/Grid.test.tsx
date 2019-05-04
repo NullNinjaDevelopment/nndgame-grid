@@ -57,6 +57,19 @@ describe("Grid", () => {
     expect(wrapper.find(".grid").length).toStrictEqual(1);
   });
 
+  it("should render dimensions class", () => {
+    const wrapper = mount(
+      <Grid
+        tileMap={TILE_MAP}
+        focalPoint={FOCAL_POINT}
+        viewDimensions={VIEW_DIMENSIONS}
+        tileComponent={NOOP_COMPONENT}
+        emptyTileComponent={NOOP_COMPONENT}
+      />
+    );
+    expect(wrapper.find(".grid.dimensions-5x5").length).toStrictEqual(1);
+  });
+
   it("should render the four corner tiles", () => {
     const wrapper = mount(
       <Grid
