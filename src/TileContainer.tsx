@@ -9,7 +9,7 @@ export interface TileContainerProps {
 export const TileContainer = (props: TileContainerProps) => {
   return (
     <div className="cell" data-x={props.position.x} data-y={props.position.y}>
-      {props.children}
+      <div className="content">{props.children}</div>
     </div>
   );
 };

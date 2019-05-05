@@ -129,6 +129,21 @@ describe("Grid", () => {
     expect(topLeftComponents.length).toBe(25);
   });
 
+  it("should render a content class inside the cells", () => {
+    const wrapper = mount(
+      <Grid
+        tileMap={TILE_MAP}
+        focalPoint={FOCAL_POINT}
+        viewDimensions={VIEW_DIMENSIONS}
+        tileComponent={mockTileComponent}
+        emptyTileComponent={mockEmptyTileComponent}
+      />
+    );
+
+    const topLeftComponents = wrapper.find(".cell .content");
+    expect(topLeftComponents.length).toBe(25);
+  });
+
   it("should not render cells outside of the view dimensions", () => {
     const wrapper = mount(
       <Grid
