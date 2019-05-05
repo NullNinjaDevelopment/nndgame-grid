@@ -1,6 +1,6 @@
 {
   "name": "nndgame-grid",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React game grid component",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
